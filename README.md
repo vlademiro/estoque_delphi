@@ -18,6 +18,10 @@ Ferramentas usadas :
 
 ## Aula 08 - Iniciando o sistema e tela principal
 
+Vídeo-aula : https://www.udemy.com/course/delphi-criando-sistema-de-controle-de-estoque-passo-a-passo/learn/lecture/19421546#notes
+
+Commit : https://github.com/vlademiro/estoque_delphi/commit/042e2fa6ac421cdabda807718c5c9c3fa4265f9c
+
 ### Sub-pastas do projeto
 
 1. DCU
@@ -34,13 +38,54 @@ Ferramentas usadas :
 
 1. Name : Frm_Principal
 1. Caption : Controle de Estoque
+1. Width : 1200
+1. WindowState : wsMaximized
 
-#### TPanel
+
+#### TPanel (Standard)
 
 1. Align : alTop
 1. Caption : sem caption
 1. Color : clSkyBlue
 1. Height : 90
+
+#### TSpeedButton (Aditional)
+
+1. Height : 90
+1. Width : 100
+1. Layout : blGlyphTop (Figura em cima, texto embaixo)
+1. Font : Tahoma, Bold, 10px
+1. Flat : True (Para ficar transparente mostrando apenas as figuras)
+
+Alinhe os botões na horizontal para que fiquem centralizados horizontalmente:
+
+* Selecione todos os botões (Shift+Clique)
+* Botão direito
+* Position >
+* Align...
+* Horizontal / Space Equally
+
+#### TStatusBar (Win32)
+
+* Botão direito : Panels editor...
+* Insira 3 TStatusPanel
+* Nos dois primeiros atribua Width = 150
+
+
+
+1. 
+1. Insira 3 
+
+# Apêndices
+
+## Links interessantes
+
+
+* Ícones grátis : https://icon-icons.com/pt/ : Para botões 32bits, para Tela principal 64bits. Converta para BMP depois.
+
+
+
+
 
 
 
