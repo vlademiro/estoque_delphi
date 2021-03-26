@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls,
+  Vcl.Menus;
 
 type
   TFrm_Principal = class(TForm)
@@ -21,7 +22,28 @@ type
     SpeedButton10: TSpeedButton;
     stbPrincipal: TStatusBar;
     tmrPrincipal: TTimer;
+    mnuPrincipal: TMainMenu;
+    Cadastro1: TMenuItem;
+    Usurio1: TMenuItem;
+    Empresa1: TMenuItem;
+    Cliente1: TMenuItem;
+    Fornecedor1: TMenuItem;
+    Produto1: TMenuItem;
+    Formadepagamento1: TMenuItem;
+    Movimento1: TMenuItem;
+    Compra1: TMenuItem;
+    Venda1: TMenuItem;
+    Relatrio1: TMenuItem;
+    Listadeusurios1: TMenuItem;
+    Listadefornecedores1: TMenuItem;
+    Listadeprodutos1: TMenuItem;
+    Listadecompras1: TMenuItem;
+    Listadevendas1: TMenuItem;
+    Sobreosistema1: TMenuItem;
+    N1: TMenuItem;
+    N2: TMenuItem;
     procedure tmrPrincipalTimer(Sender: TObject);
+    procedure SpeedButton10Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,6 +56,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrm_Principal.SpeedButton10Click(Sender: TObject);
+begin
+  Close();
+end;
 
 procedure TFrm_Principal.tmrPrincipalTimer(Sender: TObject);
 begin

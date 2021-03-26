@@ -10,7 +10,9 @@ object Frm_Principal: TFrm_Principal
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = mnuPrincipal
   OldCreateOrder = False
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -2793,7 +2795,7 @@ object Frm_Principal: TFrm_Principal
       Top = 0
       Width = 103
       Height = 90
-      Caption = 'Compras'
+      Caption = 'Co&mpras'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -4495,6 +4497,7 @@ object Frm_Principal: TFrm_Principal
         0000000000000000000000000000000000000000000000000000}
       Layout = blGlyphTop
       ParentFont = False
+      OnClick = SpeedButton10Click
     end
   end
   object stbPrincipal: TStatusBar
@@ -4517,5 +4520,66 @@ object Frm_Principal: TFrm_Principal
     OnTimer = tmrPrincipalTimer
     Left = 352
     Top = 128
+  end
+  object mnuPrincipal: TMainMenu
+    Left = 424
+    Top = 128
+    object Cadastro1: TMenuItem
+      Caption = 'Cadastros'
+      object Usurio1: TMenuItem
+        Caption = '&Usu'#225'rio...'
+      end
+      object Empresa1: TMenuItem
+        Caption = '&Empresa...'
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Cliente1: TMenuItem
+        Caption = '&Cliente...'
+      end
+      object Fornecedor1: TMenuItem
+        Caption = '&Fornecedor...'
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object Produto1: TMenuItem
+        Caption = '&Produto...'
+      end
+      object Formadepagamento1: TMenuItem
+        Caption = '&Forma de pagamento...'
+      end
+    end
+    object Movimento1: TMenuItem
+      Caption = 'Movimentos'
+      object Compra1: TMenuItem
+        Caption = 'Compra...'
+      end
+      object Venda1: TMenuItem
+        Caption = 'Venda...'
+      end
+    end
+    object Relatrio1: TMenuItem
+      Caption = 'Relat'#243'rios'
+      object Listadeusurios1: TMenuItem
+        Caption = 'Lista de usu'#225'rios...'
+      end
+      object Listadefornecedores1: TMenuItem
+        Caption = 'Lista de fornecedores...'
+      end
+      object Listadeprodutos1: TMenuItem
+        Caption = 'Lista de produtos...'
+      end
+      object Listadecompras1: TMenuItem
+        Caption = 'Lista de compras...'
+      end
+      object Listadevendas1: TMenuItem
+        Caption = 'Lista de vendas...'
+      end
+    end
+    object Sobreosistema1: TMenuItem
+      Caption = 'Sobre o sistema'
+    end
   end
 end

@@ -32,9 +32,7 @@ Commit : https://github.com/vlademiro/estoque_delphi/commit/042e2fa6ac421cdabda8
 
 ### Alterar o local de salvamento do formulário
 
-### Configurações iniciais do formulário
-
-#### Formulário
+### Formulário (U_Principal.pas)
 
 1. Name : Frm_Principal
 1. Caption : Controle de Estoque
@@ -71,10 +69,86 @@ Alinhe os botões na horizontal para que fiquem centralizados horizontalmente:
 * Insira 3 TStatusPanel
 * Nos dois primeiros atribua Width = 150
 
+## Aula 09 - Criando a conexão com o banco de dados e Form padrão
+
+Vídeo-aula : https://www.udemy.com/course/delphi-criando-sistema-de-controle-de-estoque-passo-a-passo/learn/lecture/19467968#notes
 
 
-1. 
-1. Insira 3 
+### Formulário (U_DM.pas)
+
+1. Name : DM 
+1. Login prompt = False
+
+Dois cliques na conexao
+
+* Driver ID = FB
+* Database = o path para o arquivo C:\Projetos\...\estoque.fdb
+* Username = seu usuário
+* Password = sua senha
+* Conection = TCP/IP
+* Port = 3050
+* Charset = WIN1252
+
+#### TFDConnection (FireDAC)
+
+1. Name : conexao
+
+#### TFDTransaction (FireDAC)
+
+1. Name : transacao
+
+#### TFDPhysFBDriverLink (FireDAC Links)
+
+Apenas insira o controle
+
+### Formulário (U_Padrao.pas)
+
+1. Name : Frm_Padrao
+1. Caption : Formulário padrão
+1. KeyPreview : True
+1. Adicione o evento KeyPress para o ENTER passar para o outro campo
+1. BorderStyle : bsDialog (Sem maximizar, apenas o fechar)
+
+#### TPanel (Standard)
+
+1. Align = alTop
+1. Caption = Em branco
+2. Color = clActiveCaption
+
+#### TPanel (Standard)
+
+1. Align = alBottom
+1. Caption = Em branco
+2. Color = clActiveCaption
+
+#### TBitBtn (Additional)
+
+1. Height = 45
+1. Width = 90
+
+Inclua os seguintes
+
+* btnNovo = Novo
+* btnExcluir = Excluir
+* btnAlterar = Alterar 
+* btnGravar = Gravar (Enabled=False)
+* btnCancelar = Cancelar
+* btnAtualizar = Atualizar (Enabled=False)
+
+#### TDBNavigator
+
+1. VisibleButtons = Deixa apenas as 4 primeiras (as setas de navegação, o resto desmarca)
+
+#### TFDQuery
+
+1. Name : Q_Padrao
+1. Connection : conexao (Não esqueça de inserir o cabeçalho antes, com Alt+F11)
+
+
+#### TDataSource
+
+1. Name : ds_Padrao
+1. Dataset : Q_Padrao
 
 # Apêndices
 
