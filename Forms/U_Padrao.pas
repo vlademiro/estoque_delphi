@@ -24,6 +24,7 @@ type
     DBNavigator1: TDBNavigator;
     Q_Padrao: TFDQuery;
     ds_padrao: TDataSource;
+    btnSair: TBitBtn;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure btnNovoClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
@@ -31,6 +32,8 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure TrataBotoes();
+    procedure btnSairClick(Sender: TObject);
+    procedure btnAtualizarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,44 +51,72 @@ uses U_DM;
 
 procedure TFrm_Padrao.btnGravarClick(Sender: TObject);
 begin
-  TrataBotoes;
-  Q_Padrao.Post;
-  messagedlg('Registro salvo com sucesso.',mtInformation,[mbOk],0);
+try
+ Q_padrao.post;
+ Tratabotoes;
+ except
+ ShowMessage('Erro nas gravação dos dados,verifique!');
+end;
+end;
+
+procedure TFrm_Padrao.btnAtualizarClick(Sender: TObject);
+begin
+ // atualiza o registro
+ try
+ Tratabotoes;
+ Q_padrao.Post;
+ Messagedlg('Registro atualizado com sucesso!',mtInformation,[mbOk],0);
+  Except
+  ShowMessage('Erro na atualização do registro,verifique!');
+ end;
 end;
 
 procedure TFrm_Padrao.btnCancelarClick(Sender: TObject);
 begin
-  TrataBotoes;
-  Q_Padrao.Cancel;
+// cancela a ação
+ Tratabotoes;
+ Q_padrao.Cancel;
+ Messagedlg('Ação cancelada pelo usuário!',mtInformation,[mbOk],0);
 end;
 
 procedure TFrm_Padrao.btnAlterarClick(Sender: TObject);
 begin
-    TrataBotoes;
-    Q_Padrao.Edit;
-    TrataBotoes;
+
+Tratabotoes;
+ if messagedlg('Deseja editar este registro?',mtConfirmation,[mbOk,mbNo],0)=mrOk then
+    begin
+      Q_padrao.edit;
+    end
+    else
+    Tratabotoes;
+    abort;
+
 end;
 
 procedure TFrm_Padrao.btnExcluirClick(Sender: TObject);
 begin
-  TrataBotoes;
-  if messagedlg('Deseja excluir este registro ?',mtConfirmation,[mbOK,mbNo],0)=mrOk  then
+Tratabotoes;
+ if messagedlg('Deseja deletar este registro?',mtConfirmation,[mbOk,mbNo],0)=mrOk then
     begin
-      Q_Padrao.Delete;
-      TrataBotoes;
+      Q_padrao.Delete;
+      Messagedlg('Registro deletado com sucesso!',mtInformation,[mbOk],0);
+      Tratabotoes;
     end
-  else
-    begin
-      TrataBotoes;
-      abort;
-    end;
-
+    else
+    Tratabotoes;
+    abort;
 end;
 
 procedure TFrm_Padrao.btnNovoClick(Sender: TObject);
 begin
   TrataBotoes;
+  q_padrao.Open();
   q_padrao.Append;
+end;
+
+procedure TFrm_Padrao.btnSairClick(Sender: TObject);
+begin
+  close();
 end;
 
 procedure TFrm_Padrao.FormKeyPress(Sender: TObject; var Key: Char);

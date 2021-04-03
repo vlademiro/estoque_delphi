@@ -44,6 +44,9 @@ type
     N2: TMenuItem;
     procedure tmrPrincipalTimer(Sender: TObject);
     procedure SpeedButton10Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure Abre_Tela_Usuario;
+    procedure Usurio1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,9 +60,16 @@ implementation
 
 {$R *.dfm}
 
+uses U_Usuario;
+
 procedure TFrm_Principal.SpeedButton10Click(Sender: TObject);
 begin
   Close();
+end;
+
+procedure TFrm_Principal.SpeedButton1Click(Sender: TObject);
+begin
+  Abre_Tela_Usuario;
 end;
 
 procedure TFrm_Principal.tmrPrincipalTimer(Sender: TObject);
@@ -67,6 +77,23 @@ begin
     stbPrincipal.Panels[0].Text := DateToStr(now);
     stbPrincipal.Panels[1].Text := TimeToStr(now);
     stbPrincipal.Panels[2].Text := 'Bem-vindo ao sistema';
+end;
+
+procedure TFrm_Principal.Usurio1Click(Sender: TObject);
+begin
+    Abre_Tela_Usuario;
+end;
+
+procedure TFrm_Principal.Abre_Tela_Usuario;
+begin
+  frm_Usuario:=TFrm_Usuario.Create(self);
+  frm_usuario.ShowModal;
+  try
+
+  finally
+    frm_usuario.Free;
+    frm_usuario := nil;
+  end;
 end;
 
 end.
