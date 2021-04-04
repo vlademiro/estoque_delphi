@@ -56,6 +56,7 @@ type
     DB_Logomarca: TDBImage;
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
+    procedure btnNovoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,5 +69,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrm_Empresa.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+    DB_Cadastro.Text := dateToStr(now);
+    DB_RazaoSocial.SetFocus;
+end;
 
 end.
