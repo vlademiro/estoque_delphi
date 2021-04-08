@@ -54,9 +54,12 @@ type
     DB_Cadastro: TDBEdit;
     Label14: TLabel;
     DB_Logomarca: TDBImage;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
+    bt_Foto: TBitBtn;
+    bt_Clear: TBitBtn;
+    OpenDialog1: TOpenDialog;
     procedure btnNovoClick(Sender: TObject);
+    procedure bt_FotoClick(Sender: TObject);
+    procedure bt_ClearClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,6 +78,26 @@ begin
   inherited;
     DB_Cadastro.Text := dateToStr(now);
     DB_RazaoSocial.SetFocus;
+end;
+
+procedure TFrm_Empresa.bt_ClearClick(Sender: TObject);
+begin
+  // Limpa imagem
+  Q_Padrao.Edit;
+  Q_Padrao.Refresh;
+  MessageDlg('Imagem excluída com sucesso',mtInformation,[mbOk],0);
+
+end;
+
+procedure TFrm_Empresa.bt_FotoClick(Sender: TObject);
+begin
+
+  Q_Padrao.Edit;
+  OpenDialog1.Execute();
+  DB_Logomarca.Picture.LoadFromFile( OpenDialog1.FileName );
+  Q_Padrao.Refresh;
+  MessageDlg('Imagem inserida com sucesso',mtInformation,[mbOk],0);
+
 end;
 
 end.

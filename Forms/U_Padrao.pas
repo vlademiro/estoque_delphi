@@ -19,7 +19,6 @@ type
     btnAlterar: TBitBtn;
     btnGravar: TBitBtn;
     btnCancelar: TBitBtn;
-    btnAtualizar: TBitBtn;
     btnPesquisar: TBitBtn;
     DBNavigator1: TDBNavigator;
     Q_Padrao: TFDQuery;
@@ -51,13 +50,44 @@ uses U_DM;
 
 procedure TFrm_Padrao.btnGravarClick(Sender: TObject);
 begin
-try
- Q_padrao.post;
- Tratabotoes;
- except
- ShowMessage('Erro nas gravação dos dados,verifique!');
-end;
-end;
+
+  if Q_padrao.State in [dsinsert] then
+
+        begin
+
+         Q_padrao.Post;
+
+         Messagedlg('Registro salvo com sucesso!',mtInformation,[mbOk],0);
+
+         tratabotoes;
+
+        abort;
+
+        end
+
+     else
+
+      // se estiver em edição
+
+      if Q_padrao.State in [dsEdit] then
+
+        begin
+
+          Q_padrao.Refresh;
+
+          tratabotoes;
+
+          Messagedlg('Registro atualizado com sucesso!',mtInformation,[mbOk],0);
+
+
+
+        end
+
+      else
+
+      abort;
+
+  end;
 
 procedure TFrm_Padrao.btnAtualizarClick(Sender: TObject);
 begin
@@ -133,7 +163,6 @@ begin
   btnNovo.Enabled := not btnNovo.Enabled;
   btnExcluir.Enabled := not btnExcluir.Enabled;
   btnGravar.Enabled := not btnGravar.Enabled;
-  btnAtualizar.Enabled := not btnAtualizar.Enabled;
   btnAlterar.Enabled := not btnAlterar.Enabled;
 end;
 
