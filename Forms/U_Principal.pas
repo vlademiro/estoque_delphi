@@ -58,6 +58,9 @@ type
     procedure Abre_Tela_Produto;
     procedure SpeedButton5Click(Sender: TObject);
     procedure Produto1Click(Sender: TObject);
+    procedure Abre_Tela_FormPgto;
+    procedure SpeedButton6Click(Sender: TObject);
+    procedure Formadepagamento1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,7 +74,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_Usuario, U_Empresa, U_Cliente, U_Fornecedor, U_Produto;
+uses U_Usuario, U_Empresa, U_Cliente, U_Fornecedor, U_Produto, U_FormPgto;
 
 procedure TFrm_Principal.SpeedButton10Click(Sender: TObject);
 begin
@@ -103,6 +106,11 @@ begin
   Abre_Tela_Produto;
 end;
 
+procedure TFrm_Principal.SpeedButton6Click(Sender: TObject);
+begin
+  Abre_Tela_FormPgto;
+end;
+
 procedure TFrm_Principal.tmrPrincipalTimer(Sender: TObject);
 begin
     stbPrincipal.Panels[0].Text := DateToStr(now);
@@ -130,6 +138,11 @@ end;
 procedure TFrm_Principal.Empresa1Click(Sender: TObject);
 begin
       Abre_Tela_Empresa;
+end;
+
+procedure TFrm_Principal.Formadepagamento1Click(Sender: TObject);
+begin
+  Abre_Tela_FormPgto;
 end;
 
 procedure TFrm_Principal.Fornecedor1Click(Sender: TObject);
@@ -176,6 +189,18 @@ begin
   finally
     frm_Fornecedor.Free;
     frm_Fornecedor := nil;
+  end;
+end;
+
+procedure TFrm_Principal.Abre_Tela_FormPgto;
+begin
+  frm_FormPgto:=TFrm_FormPgto.Create(self);
+  frm_FormPgto.ShowModal;
+  try
+
+  finally
+    frm_FormPgto.Free;
+    frm_FormPgto := nil;
   end;
 end;
 

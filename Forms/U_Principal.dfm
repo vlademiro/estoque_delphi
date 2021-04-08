@@ -2794,6 +2794,7 @@ object Frm_Principal: TFrm_Principal
         0000000000000000000000000000000000000000000000000000}
       Layout = blGlyphTop
       ParentFont = False
+      OnClick = SpeedButton6Click
     end
     object SpeedButton7: TSpeedButton
       Left = 700
@@ -4558,6 +4559,7 @@ object Frm_Principal: TFrm_Principal
       end
       object Formadepagamento1: TMenuItem
         Caption = '&Forma de pagamento...'
+        OnClick = Formadepagamento1Click
       end
     end
     object Movimento1: TMenuItem
