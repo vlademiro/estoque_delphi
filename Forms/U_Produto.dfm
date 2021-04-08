@@ -1,7 +1,9 @@
 inherited Frm_Produto: TFrm_Produto
   Caption = 'Cadastro de Produtos'
-  ClientHeight = 472
-  ExplicitHeight = 500
+  ClientHeight = 403
+  ClientWidth = 809
+  ExplicitWidth = 815
+  ExplicitHeight = 431
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
@@ -37,8 +39,8 @@ inherited Frm_Produto: TFrm_Produto
     FocusControl = DB_VL_CUSTO
   end
   object Label5: TLabel [4]
-    Left = 40
-    Top = 240
+    Left = 263
+    Top = 200
     Width = 72
     Height = 13
     Caption = 'Valor de venda'
@@ -46,15 +48,15 @@ inherited Frm_Produto: TFrm_Produto
   end
   object Label6: TLabel [5]
     Left = 40
-    Top = 280
+    Top = 243
     Width = 39
     Height = 13
     Caption = 'Estoque'
     FocusControl = DB_ESTOQUE
   end
   object Label7: TLabel [6]
-    Left = 40
-    Top = 320
+    Left = 328
+    Top = 246
     Width = 74
     Height = 13
     Caption = 'Estoque m'#237'nimo'
@@ -62,7 +64,7 @@ inherited Frm_Produto: TFrm_Produto
   end
   object Label8: TLabel [7]
     Left = 40
-    Top = 360
+    Top = 289
     Width = 39
     Height = 13
     Caption = 'Unidade'
@@ -75,8 +77,12 @@ inherited Frm_Produto: TFrm_Produto
     Caption = 'Cadastro'
     FocusControl = DB_CADASTRO
   end
+  inherited pnlTop: TPanel
+    Width = 809
+  end
   inherited pnlBottom: TPanel
-    Top = 414
+    Top = 345
+    Width = 809
     ExplicitTop = 508
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
@@ -112,15 +118,15 @@ inherited Frm_Produto: TFrm_Produto
   object DB_VL_CUSTO: TDBEdit [15]
     Left = 40
     Top = 216
-    Width = 251
+    Width = 177
     Height = 21
     DataField = 'VL_CUSTO'
     DataSource = ds_padrao
     TabOrder = 6
   end
   object DB_VL_VENDA: TDBEdit [16]
-    Left = 40
-    Top = 256
+    Left = 263
+    Top = 216
     Width = 251
     Height = 21
     DataField = 'VL_VENDA'
@@ -129,7 +135,7 @@ inherited Frm_Produto: TFrm_Produto
   end
   object DB_ESTOQUE: TDBEdit [17]
     Left = 40
-    Top = 296
+    Top = 262
     Width = 251
     Height = 21
     DataField = 'ESTOQUE'
@@ -137,9 +143,9 @@ inherited Frm_Produto: TFrm_Produto
     TabOrder = 8
   end
   object DB_ESTOQUE_MIN: TDBEdit [18]
-    Left = 40
-    Top = 336
-    Width = 251
+    Left = 328
+    Top = 262
+    Width = 186
     Height = 21
     DataField = 'ESTOQUE_MIN'
     DataSource = ds_padrao
@@ -165,7 +171,7 @@ inherited Frm_Produto: TFrm_Produto
   end
   object DB_UNIDADE: TDBComboBox [21]
     Left = 40
-    Top = 379
+    Top = 308
     Width = 145
     Height = 21
     DataField = 'UNIDADE'
@@ -197,7 +203,7 @@ inherited Frm_Produto: TFrm_Produto
       DisplayLabel = 'C'#243'digo do produto'
       FieldName = 'ID_PRODUTO'
       Origin = 'ID_PRODUTO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ProviderFlags = [pfInWhere, pfInKey]
       Required = True
     end
     object Q_PadraoPRODUTO_DESCRICAO: TStringField
@@ -218,6 +224,7 @@ inherited Frm_Produto: TFrm_Produto
       FieldName = 'VL_CUSTO'
       Origin = 'VL_CUSTO'
       Required = True
+      currency = True
       Precision = 18
       Size = 2
     end
@@ -226,6 +233,7 @@ inherited Frm_Produto: TFrm_Produto
       FieldName = 'VL_VENDA'
       Origin = 'VL_VENDA'
       Required = True
+      currency = True
       Precision = 18
       Size = 2
     end
