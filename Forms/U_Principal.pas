@@ -55,6 +55,9 @@ type
     procedure Abre_Tela_Fornecedor;
     procedure SpeedButton4Click(Sender: TObject);
     procedure Fornecedor1Click(Sender: TObject);
+    procedure Abre_Tela_Produto;
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure Produto1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,7 +71,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_Usuario, U_Empresa, U_Cliente, U_Fornecedor;
+uses U_Usuario, U_Empresa, U_Cliente, U_Fornecedor, U_Produto;
 
 procedure TFrm_Principal.SpeedButton10Click(Sender: TObject);
 begin
@@ -93,6 +96,11 @@ end;
 procedure TFrm_Principal.SpeedButton4Click(Sender: TObject);
 begin
   Abre_Tela_Fornecedor;
+end;
+
+procedure TFrm_Principal.SpeedButton5Click(Sender: TObject);
+begin
+  Abre_Tela_Produto;
 end;
 
 procedure TFrm_Principal.tmrPrincipalTimer(Sender: TObject);
@@ -129,6 +137,11 @@ begin
   Abre_Tela_Fornecedor;
 end;
 
+procedure TFrm_Principal.Produto1Click(Sender: TObject);
+begin
+  Abre_Tela_Produto;
+end;
+
 procedure TFrm_Principal.Abre_Tela_Empresa;
 begin
   frm_Empresa:=TFrm_Empresa.Create(self);
@@ -163,6 +176,19 @@ begin
   finally
     frm_Fornecedor.Free;
     frm_Fornecedor := nil;
+  end;
+end;
+
+
+procedure TFrm_Principal.Abre_Tela_Produto;
+begin
+  frm_Produto:=TFrm_Produto.Create(self);
+  frm_Produto.ShowModal;
+  try
+
+  finally
+    frm_Produto.Free;
+    frm_Produto := nil;
   end;
 end;
 

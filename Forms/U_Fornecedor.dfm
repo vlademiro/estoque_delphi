@@ -244,8 +244,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
       DisplayLabel = 'C'#243'digo'
       FieldName = 'ID_FORNECEDOR'
       Origin = 'ID_FORNECEDOR'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      IdentityInsert = True
+      ProviderFlags = [pfInWhere, pfInKey]
     end
     object Q_PadraoNOME: TStringField
       DisplayLabel = 'Nome'
