@@ -43,6 +43,11 @@ inherited Frm_Usuario: TFrm_Usuario
     Caption = 'Cadastro'
     FocusControl = DB_Cadastro
   end
+  inherited pnlTop: TPanel
+    inherited btnPesquisar: TBitBtn
+      OnClick = btnPesquisarClick
+    end
+  end
   inherited pnlBottom: TPanel
     Top = 254
     ExplicitTop = 254

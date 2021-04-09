@@ -135,6 +135,18 @@
             <Form>Frm_Produto</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Forms\U_FormPgto.pas">
+            <Form>Frm_FormPgto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Forms\U_Form_Pesquisa_Padrao.pas">
+            <Form>Frm_Pesquisa_Padrao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Forms\U_Pesq_Usuario.pas">
+            <Form>Frm_Pesq_Usuario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

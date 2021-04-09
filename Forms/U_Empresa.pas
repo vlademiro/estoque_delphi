@@ -84,6 +84,7 @@ procedure TFrm_Empresa.bt_ClearClick(Sender: TObject);
 begin
   // Limpa imagem
   Q_Padrao.Edit;
+  Q_PadraoLOGO.AsVariant := null;
   Q_Padrao.Refresh;
   MessageDlg('Imagem excluída com sucesso',mtInformation,[mbOk],0);
 
