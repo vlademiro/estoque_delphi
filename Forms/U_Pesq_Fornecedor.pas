@@ -1,4 +1,4 @@
-unit U_Pesq_Usuario;
+unit U_Pesq_Fornecedor;
 
 interface
 
@@ -11,10 +11,18 @@ uses
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls;
 
 type
-  TFrm_Pesq_Usuario = class(TFrm_Pesquisa_Padrao)
-    Q_pesq_padraoID_USUARIO: TIntegerField;
+  TFrm_Pesq_Fornecedor = class(TFrm_Pesquisa_Padrao)
+    Q_pesq_padraoID_FORNECEDOR: TIntegerField;
     Q_pesq_padraoNOME: TStringField;
-    Q_pesq_padraoTIPO: TStringField;
+    Q_pesq_padraoENDERECO: TStringField;
+    Q_pesq_padraoNUMERO: TIntegerField;
+    Q_pesq_padraoBAIRRO: TStringField;
+    Q_pesq_padraoCIDADE: TStringField;
+    Q_pesq_padraoUF: TStringField;
+    Q_pesq_padraoCEP: TStringField;
+    Q_pesq_padraoTELEFONE: TStringField;
+    Q_pesq_padraoCNPJ: TStringField;
+    Q_pesq_padraoEMAIL: TStringField;
     Q_pesq_padraoCADASTRO: TDateField;
     procedure bt_pesquisarClick(Sender: TObject);
     procedure bt_transferirClick(Sender: TObject);
@@ -26,24 +34,37 @@ type
   end;
 
 var
-  Frm_Pesq_Usuario: TFrm_Pesq_Usuario;
+  Frm_Pesq_Fornecedor: TFrm_Pesq_Fornecedor;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFrm_Pesq_Usuario.bt_pesquisarClick(Sender: TObject);
+procedure TFrm_Pesq_Fornecedor.bt_pesquisarClick(Sender: TObject);
 begin
  Q_pesq_padrao.Close; // fecha
  Q_pesq_padrao.SQL.Add(''); // limpa
  Q_pesq_padrao.Params.Clear;  //limpamos os parametros
- Q_pesq_padrao.SQL.Clear;  // lima o sql
- Q_pesq_padrao.SQL.Add('SELECT ID_USUARIO,NOME,TIPO,CADASTRO FROM USUARIO'); // add sql
+ Q_pesq_padrao.SQL.Clear;  // limPa o sql
+ Q_pesq_padrao.SQL.Add('SELECT ID_FORNECEDOR, '
+  + 'NOME ,'
+  + 'ENDERECO ,'
+  + 'NUMERO ,'
+  + 'BAIRRO ,'
+  + 'CIDADE ,'
+  + 'UF , '
+  + 'CEP ,'
+  + 'TELEFONE ,'
+  + 'CNPJ ,'
+  + 'EMAIL ,'
+  + 'CADASTRO '
+  + 'FROM FORNECEDOR'); // add sql
 
+   //OPÇÕES DE PESQUISA
  case cb_chave_pesquisa.ItemIndex of
    0:begin// pesquisa por codigo
-      Q_pesq_padrao.SQL.Add('WHERE ID_USUARIO =:PID_USUARIO'); // criamos o parametro
-      Q_pesq_padrao.ParamByName('PID_USUARIO').AsString:=ed_nome.Text; // aponta para o campo do parametro
+      Q_pesq_padrao.SQL.Add('WHERE ID_FORNECEDOR =:PID_FORNECEDOR'); // criamos o parametro
+      Q_pesq_padrao.ParamByName('PID_FORNECEDOR').AsString:=ed_nome.Text; // aponta para o campo do parametro
 
    end;
 
@@ -66,7 +87,7 @@ begin
       end;
 
      4:begin
-         Q_pesq_padrao.SQL.Add('ORDER BY ID_USUARIO');
+         Q_pesq_padrao.SQL.Add('ORDER BY ID_FORNECEDOR');
 
       end;
  end;
@@ -74,7 +95,7 @@ begin
 // abre a query mostra o resultado
  Q_pesq_padrao.Open;
 
-    // Mostra a quantidade de registros encontrados
+ // Mostra a quantidade de registros encontrados
     lb_Resultado.Caption:=' Total de Registros Localizados:   ' +
     IntTostr(Q_pesq_padrao.recordcount);
 
@@ -89,19 +110,18 @@ begin
 
 end;
 
-procedure TFrm_Pesq_Usuario.bt_transferirClick(Sender: TObject);
+procedure TFrm_Pesq_Fornecedor.bt_transferirClick(Sender: TObject);
 begin
   inherited;
-  if Q_pesq_padrao.RecordCount > 0 then
+ if Q_pesq_padrao.RecordCount > 0 then
       begin
-        codigo:=Q_pesq_padraoID_USUARIO.AsInteger;
+        codigo:=Q_pesq_padraoID_FORNECEDOR.AsInteger;
       end
     else
       abort;
-
 end;
 
-procedure TFrm_Pesq_Usuario.DBGrid1DblClick(Sender: TObject);
+procedure TFrm_Pesq_Fornecedor.DBGrid1DblClick(Sender: TObject);
 begin
   inherited;
    bt_transferir.Click;

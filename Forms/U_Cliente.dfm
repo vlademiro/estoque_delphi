@@ -101,6 +101,11 @@ inherited Frm_Cliente: TFrm_Cliente
     Caption = 'Cadastro'
     FocusControl = DB_Cadastro
   end
+  inherited pnlTop: TPanel
+    inherited btnPesquisar: TBitBtn
+      OnClick = btnPesquisarClick
+    end
+  end
   inherited pnlBottom: TPanel
     Top = 411
     ExplicitTop = 411

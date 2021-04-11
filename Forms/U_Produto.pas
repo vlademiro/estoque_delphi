@@ -42,6 +42,7 @@ type
     DB_NOME_FORNECEDOR: TDBEdit;
     DB_UNIDADE: TDBComboBox;
     procedure btnNovoClick(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,11 +56,31 @@ implementation
 
 {$R *.dfm}
 
+uses U_Pesq_Produto;
+
 procedure TFrm_Produto.btnNovoClick(Sender: TObject);
 begin
   inherited;
   DB_CADASTRO.Text := dateToStr(now);
   DB_ID_PRODUTO.SetFocus;
+end;
+
+procedure TFrm_Produto.btnPesquisarClick(Sender: TObject);
+begin
+  Frm_Pesq_Produto := TFrm_Pesq_Produto.Create(self);
+  Frm_Pesq_Produto.ShowModal;
+  try
+   if Frm_Pesq_Produto.codigo > 0 then
+      begin
+        q_padrao.Open;
+        Q_Padrao.Locate('ID_PRODUTO',Frm_Pesq_Produto.codigo,[]);
+      end;
+
+  finally
+    Frm_Pesq_Produto.Free;
+    Frm_Pesq_Produto:=nil;
+  end;
+
 end;
 
 end.

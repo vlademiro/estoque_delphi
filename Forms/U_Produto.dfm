@@ -79,11 +79,16 @@ inherited Frm_Produto: TFrm_Produto
   end
   inherited pnlTop: TPanel
     Width = 809
+    ExplicitWidth = 809
+    inherited btnPesquisar: TBitBtn
+      OnClick = btnPesquisarClick
+    end
   end
   inherited pnlBottom: TPanel
     Top = 345
     Width = 809
-    ExplicitTop = 508
+    ExplicitTop = 345
+    ExplicitWidth = 809
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
@@ -187,7 +192,6 @@ inherited Frm_Produto: TFrm_Produto
     TabOrder = 12
   end
   inherited Q_Padrao: TFDQuery
-    Active = True
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     SQL.Strings = (
       
@@ -203,7 +207,7 @@ inherited Frm_Produto: TFrm_Produto
       DisplayLabel = 'C'#243'digo do produto'
       FieldName = 'ID_PRODUTO'
       Origin = 'ID_PRODUTO'
-      ProviderFlags = [pfInWhere, pfInKey]
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object Q_PadraoPRODUTO_DESCRICAO: TStringField

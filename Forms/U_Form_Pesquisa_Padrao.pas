@@ -28,12 +28,15 @@ type
     bt_imprimir: TBitBtn;
     Q_pesq_padrao: TFDQuery;
     ds_pesq_padrao: TDataSource;
+    lb_Resultado: TLabel;
     procedure cb_Chave_PesquisaChange(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
     { Public declarations }
+    codigo:Integer;
   end;
 
 var
@@ -74,7 +77,9 @@ begin
 
     lb_nome.Caption := 'Digite o nome';
 
+    ed_nome.Clear;
     ed_nome.SetFocus;
+
   end;
 
   2:begin // Pesquisa por data de cadastro
@@ -87,7 +92,9 @@ begin
     lb_fim.Visible := false;
     lb_inicio.Caption := 'Digite a data';
 
+    mk_inicio.Clear;
     mk_inicio.SetFocus;
+
   end;
 
   3:begin // Pesquisa por período
@@ -100,6 +107,8 @@ begin
     lb_inicio.Caption := 'Digite o período';
     lb_fim.Visible := true;
 
+    mk_inicio.Clear;
+    mk_fim.Clear;
     mk_inicio.SetFocus;
 
   end;
@@ -117,8 +126,28 @@ begin
 
   end;
 
+  5:begin // Pesquisa pelo fornecedor
+    ed_nome.Visible := true;
+
+    mk_inicio.Visible := false;
+    mk_fim.Visible := false;
+
+    lb_nome.Visible := true;
+    lb_inicio.Visible := false;
+    lb_fim.Visible := false;
+    lb_nome.Caption := 'Digite o código do fornecedor';
+
+    ed_nome.SetFocus;
   end;
 
+  end;
+
+end;
+
+procedure TFrm_Pesquisa_Padrao.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Q_pesq_padrao.Close;
 end;
 
 procedure TFrm_Pesquisa_Padrao.FormKeyPress(Sender: TObject; var Key: Char);

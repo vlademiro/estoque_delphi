@@ -60,6 +60,11 @@ begin
   Frm_Pesq_Usuario.ShowModal;
 
   try
+    if Frm_Pesq_Usuario.codigo > 0 then
+      begin
+        q_padrao.Open;
+        Q_Padrao.Locate('ID_USUARIO',Frm_Pesq_Usuario.codigo,[]);
+      end;
 
   finally
     Frm_Pesq_Usuario.Free;

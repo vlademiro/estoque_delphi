@@ -12,6 +12,7 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
   Font.Style = []
   OldCreateOrder = False
   WindowState = wsMaximized
+  OnClose = FormClose
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
@@ -393,6 +394,7 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
+      ModalResult = 1
       TabOrder = 5
     end
     object bt_imprimir: TBitBtn
@@ -544,6 +546,19 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
     Color = clSkyBlue
     ParentBackground = False
     TabOrder = 1
+    object lb_Resultado: TLabel
+      Left = 259
+      Top = 24
+      Width = 260
+      Height = 19
+      Caption = 'Total de Registros Localizados: '
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
   end
   object DBGrid1: TDBGrid
     Left = 0

@@ -48,6 +48,7 @@ type
     DB_Email: TDBEdit;
     Label12: TLabel;
     DB_Cadastro: TDBEdit;
+    procedure btnPesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -60,5 +61,26 @@ var
 implementation
 
 {$R *.dfm}
+
+uses U_Pesq_Cliente;
+
+procedure TFrm_Cliente.btnPesquisarClick(Sender: TObject);
+begin
+
+  Frm_Pesq_Cliente := TFrm_Pesq_Cliente.Create(self);
+  Frm_Pesq_Cliente.ShowModal;
+  try
+    if Frm_Pesq_Cliente.codigo > 0 then
+    begin
+      q_padrao.Open;
+      Q_Padrao.Locate('ID_CLIENTE',Frm_Pesq_Cliente.codigo,[]);
+    end;
+
+  finally
+    Frm_Pesq_Cliente.Free;
+    Frm_Pesq_Cliente:=nil;
+  end;
+
+end;
 
 end.

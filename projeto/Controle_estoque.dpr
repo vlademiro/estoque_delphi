@@ -12,7 +12,11 @@ uses
   U_Produto in '..\Forms\U_Produto.pas' {Frm_Produto},
   U_FormPgto in '..\Forms\U_FormPgto.pas' {Frm_FormPgto},
   U_Form_Pesquisa_Padrao in '..\Forms\U_Form_Pesquisa_Padrao.pas' {Frm_Pesquisa_Padrao},
-  U_Pesq_Usuario in '..\Forms\U_Pesq_Usuario.pas' {Frm_Pesq_Usuario};
+  U_Pesq_Usuario in '..\Forms\U_Pesq_Usuario.pas' {Frm_Pesq_Usuario},
+  U_Pesq_Cliente in '..\Forms\U_Pesq_Cliente.pas' {Frm_Pesq_Cliente},
+  U_Pesq_Fornecedor in '..\Forms\U_Pesq_Fornecedor.pas' {Frm_Pesq_Fornecedor},
+  U_Pesq_Produto in '..\Forms\U_Pesq_Produto.pas' {Frm_Pesq_Produto},
+  U_Movimento_Padrao in '..\Forms\U_Movimento_Padrao.pas' {Frm_Padrao_Movimento};
 
 {$R *.res}
 
@@ -21,6 +25,7 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrm_Principal, Frm_Principal);
-  Application.CreateForm(TFrm_Pesq_Usuario, Frm_Pesq_Usuario);
+  Application.CreateForm(TFrm_Pesq_Produto, Frm_Pesq_Produto);
+  Application.CreateForm(TFrm_Padrao_Movimento, Frm_Padrao_Movimento);
   Application.Run;
 end.

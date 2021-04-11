@@ -100,8 +100,14 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'Cadastro'
     FocusControl = DB_Cadastro
   end
+  inherited pnlTop: TPanel
+    inherited btnPesquisar: TBitBtn
+      OnClick = btnPesquisarClick
+    end
+  end
   inherited pnlBottom: TPanel
     Top = 480
+    ExplicitTop = 480
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
@@ -245,6 +251,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
       FieldName = 'ID_FORNECEDOR'
       Origin = 'ID_FORNECEDOR'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object Q_PadraoNOME: TStringField
       DisplayLabel = 'Nome'
